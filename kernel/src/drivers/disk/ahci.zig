@@ -17,7 +17,7 @@ pub fn init_device(addr: pci.Addr) void {
     st.push(@src()); defer st.pop();
 
     const abar_addr = addr.barinfo(5).phy;
-    const abar = os.memory.ptr_from_paddr(*HBARegisters, abar_addr);
+    const abar = os.memory.ptr_from_paddr(HBARegisters, abar_addr);
 
     iterate_though_ports(abar);
 }
